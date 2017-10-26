@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PledgeInvaders", "Assembly-CSharp-firstpass.csproj", "{D2D6E32A-2053-CC45-DBF6-6224A2A1B32F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PledgeInvaders", "Assembly-CSharp.csproj", "{EBDD4BCD-F218-0E94-675C-7C209EB667AD}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PledgeInvaders", "Assembly-CSharp-Editor-firstpass.csproj", "{AF2579D7-1FA4-947D-F2F0-A00D2B5536AA}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{D2D6E32A-2053-CC45-DBF6-6224A2A1B32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2D6E32A-2053-CC45-DBF6-6224A2A1B32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2D6E32A-2053-CC45-DBF6-6224A2A1B32F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBDD4BCD-F218-0E94-675C-7C209EB667AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBDD4BCD-F218-0E94-675C-7C209EB667AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBDD4BCD-F218-0E94-675C-7C209EB667AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBDD4BCD-F218-0E94-675C-7C209EB667AD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF2579D7-1FA4-947D-F2F0-A00D2B5536AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF2579D7-1FA4-947D-F2F0-A00D2B5536AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF2579D7-1FA4-947D-F2F0-A00D2B5536AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
