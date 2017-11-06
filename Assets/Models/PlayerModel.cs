@@ -14,7 +14,7 @@ namespace Assets.Models
     }
     public class PlayerModel
     {
-        public Vector3 Location { get; set; }
+        public GameObject PlayerObject { get; set; }
         public decimal Health { get; set; }
         public decimal Speed { get; set; }
         public decimal DamageMultiplier { get; set; }
@@ -26,6 +26,7 @@ namespace Assets.Models
     }
     public class SurvivalPlayerModel : PlayerModel
     {
+
         public SurvivalPlayerModel()
         {
             this.Speed = 100;

@@ -51,7 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\AIMain.cs" />
+     <Compile Include="Assets\Code\ObjectMain.cs" />
      <Compile Include="Assets\Code\SurvivorMain.cs" />
+     <Compile Include="Assets\Code\ThrowingObjectMain.cs" />
      <Compile Include="Assets\Models\PlayerModel.cs" />
      <Compile Include="Assets\Models\SurvivorGameModel.cs" />
      <None Include="Assets\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />

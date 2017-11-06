@@ -248,6 +248,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &546407079 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+  m_PrefabInternal: {fileID: 1750437363}
+--- !u!114 &546407080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 546407079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02035ea1f01dd247866f03a3a73003d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Object: {fileID: 54980756356571188, guid: fffb20ec51cbe4f44a83775ea295a869, type: 2}
+  speed: 10
+  Player: {fileID: 0}
+--- !u!1001 &1354341301
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1750437363
 Prefab:
   m_ObjectHideFlags: 0
@@ -257,15 +317,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 214.29205
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.637979e-12
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 228.3644
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -301,6 +361,7 @@ GameObject:
   - component: {fileID: 1979616473}
   - component: {fileID: 1979616472}
   - component: {fileID: 1979616471}
+  - component: {fileID: 1979616475}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -370,3 +431,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979616475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1979616470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00152544c319c864ab405915e65864df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIAttacker: {fileID: 4055511884811652, guid: 45336c086e2813043b928b969f9c48ff, type: 2}
+  Barrier: {fileID: 4883664531789148, guid: b7f500b9322ba2147b0053a797f41735, type: 2}
