@@ -9,20 +9,15 @@ namespace Assets.Models
 
     public class SurvivorGameModel
     {
-        public const int NumberOfObjects = 10;
+        public int NumberOfObjects { get; set; }
         public int SpawnRate { get; set; }
-        public List<PlayerModel> Players { get; set; }
         public List<GameObject> Objects { get; set; }
-
-        public int MapLength { get; set; }
-        public int MapWidth { get; set; }
-        public SurvivorGameModel()
+        public float MapLength { get; set; }
+        public float MapWidth { get; set; }
+        public SurvivorGameModel(int spawnRate, int numberOfObjects)
         {
-            SpawnRate = 1;
-            Players = new List<PlayerModel>();
-            this.MapWidth = 50;
-            this.MapLength = 50;
-
+            this.SpawnRate = spawnRate;
+            this.NumberOfObjects = numberOfObjects;
         }
     }
 

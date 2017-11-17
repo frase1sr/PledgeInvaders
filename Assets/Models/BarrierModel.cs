@@ -7,7 +7,12 @@ namespace Assets.Models
 {
     public class BarrierModel
     {
-        public decimal Health { get; set; }
-        public decimal Type { get; set; }
+        public int Health { get; set; }
+        public int Type { get; set; }
+        public BarrierModel(int health, int type)
+        {
+            this.Health = health;
+            this.Type = type;   
+        }
     }
 }

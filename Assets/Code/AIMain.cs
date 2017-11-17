@@ -13,7 +13,6 @@ namespace Assets.Code
         public void Init(AttackerAIModel aiModel)
         {
             this.AIModel = aiModel;
-            //this.AI = ai;
         }
         // Use this for initialization
         void Start()
@@ -23,7 +22,7 @@ namespace Assets.Code
         // Update is called once per frame
         void Update()
         {
-
+            transform.Translate((Vector3.back * Time.deltaTime)*2);
         }
         void OnCollisionEnter(Collision collision)
         {
@@ -39,6 +38,7 @@ namespace Assets.Code
             if (this.AIModel.Health == 1)
             {
                 Destroy(this.gameObject);
+              
             }
             else
             {

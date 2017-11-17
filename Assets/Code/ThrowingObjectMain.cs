@@ -9,17 +9,20 @@ namespace Assets.Code
     public class ThrowingObjectMain : MonoBehaviour
     {
         public Rigidbody Object;
-        public float speed = 10f;
-        public GameObject Player;
+        public float speed;
+        private bool isEnabled = true;
+        public void setEnabled(bool value)
+        {
+           this.isEnabled = value;
+        }
         void Fire()
         {
             Rigidbody objectClone = (Rigidbody)Instantiate(Object, transform.position, transform.rotation);
             objectClone.velocity = transform.forward * speed;
         }
-        // Calls the fire method when holding down ctrl or mouse
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && isEnabled)
             {
                 Fire();
             }
