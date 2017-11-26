@@ -235,6 +235,14 @@
     <Compile Include="Assets\Code\BarrierMain.cs" />
     <Compile Include="Assets\Code\GUIMain.cs" />
     <Compile Include="Assets\Code\ObjectMain.cs" />
+    <Compile Include="Assets\Code\PathFinding\Grid.cs" />
+    <Compile Include="Assets\Code\PathFinding\Heap.cs" />
+    <Compile Include="Assets\Code\PathFinding\Line.cs" />
+    <Compile Include="Assets\Code\PathFinding\Node.cs" />
+    <Compile Include="Assets\Code\PathFinding\Path.cs" />
+    <Compile Include="Assets\Code\PathFinding\Pathfinding.cs" />
+    <Compile Include="Assets\Code\PathFinding\PathRequestManager.cs" />
+    <Compile Include="Assets\Code\PathFinding\Unit.cs" />
     <Compile Include="Assets\Code\PlayerMain.cs" />
     <Compile Include="Assets\Code\SurvivorMain.cs" />
     <Compile Include="Assets\Code\ThrowingObjectMain.cs" />

@@ -10,15 +10,19 @@ public class SurvivorMain : MonoBehaviour
     // Use this for initialization
     public Transform AIAttacker;
     public GameObject Barrier;
+    public GameObject PathAlgObject;
+
+    public int InitialAmountOfAISpawn;
+
     public int NumberOfObjects;
-    public int MapWidth;
-    public int MapLength;
+
     void Start()
     {
         var game = new SurvivorGameModel(1, NumberOfObjects);
         var player = new SurvivalPlayerModel();
         GenerateMap(game);
-        SpawnAI(AIType.Hard,1, game);
+        Instantiate(PathAlgObject);
+        SpawnAI(AIType.Hard, InitialAmountOfAISpawn, game);
 
     }
 
@@ -33,7 +37,7 @@ public class SurvivorMain : MonoBehaviour
         for (int x = 0; x < number; x++)
         {
             var aiModel = new AttackerAIModel(aiType);
-            var aiClone = Instantiate(AIAttacker, new Vector3(Random.Range(0, game.MapWidth), 1, game.MapLength), Quaternion.identity);
+            var aiClone = Instantiate(AIAttacker, new Vector3(Random.Range(0, game.MapWidth), 0, game.MapLength-10), Quaternion.identity);
             aiClone.GetComponent<AIMain>().Init(aiModel);
         }
     }
@@ -49,7 +53,7 @@ public class SurvivorMain : MonoBehaviour
         Random random = new Random();
         for (int i = 0; i < game.NumberOfObjects; i++)//TODO:game.Objects?
         {
-            Vector3 position = new Vector3(Random.Range(0, game.MapWidth), 3, Random.Range(0, game.MapLength));
+            Vector3 position = new Vector3(Random.Range(0, game.MapWidth), 0, Random.Range(0, game.MapLength));
             var barrier = new BarrierModel(3, 0);
             var barrierClone = Instantiate(Barrier, position, Quaternion.identity);
             barrierClone.GetComponent<BarrierMain>().Init(barrier);
