@@ -10,6 +10,9 @@ namespace Assets.Code
     public class AIMain : MonoBehaviour
     {
         public AttackerAIModel AIModel { get; set; }
+        private float Timer = 0f;
+        private bool IsDamaging = false;
+        private GameObject player;
         public void Init(AttackerAIModel aiModel)
         {
             this.AIModel = aiModel;
@@ -17,12 +20,21 @@ namespace Assets.Code
         // Use this for initialization
         void Start()
         {
+                player = GameObject.FindWithTag("Player");
         }
 
         // Update is called once per frame
         void Update()
         {
-            transform.Translate((Vector3.back * Time.deltaTime)*2);
+            if (IsDamaging)
+            {
+                Timer += Time.deltaTime;
+                if (Timer >= this.AIModel.DamageDelaySeconds)
+                {
+                    Timer = 0f;
+                    player.GetComponent<PlayerMain>().TakeDamage(AIModel.Damage);
+                }
+            }
         }
         void OnCollisionEnter(Collision collision)
         {
@@ -31,6 +43,10 @@ namespace Assets.Code
             {
                 Destroy(collision.gameObject);
                 Hit();
+            }
+            if (collision.gameObject.tag == "PlayerBarrier")
+            {
+                IsDamaging = true;
             }
         }
         private void Hit()

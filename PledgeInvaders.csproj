@@ -246,8 +246,6 @@
     <Compile Include="Assets\Code\PlayerMain.cs" />
     <Compile Include="Assets\Code\SurvivorMain.cs" />
     <Compile Include="Assets\Code\ThrowingObjectMain.cs" />
-    <Compile Include="Assets\FORGE3D\CameraTool\F3DCameraTool.cs" />
-    <Compile Include="Assets\FORGE3D\CameraTool\F3DCameraToolEditor.cs" />
     <Compile Include="Assets\Models\BarrierModel.cs" />
     <Compile Include="Assets\Models\PlayerModel.cs" />
     <Compile Include="Assets\Models\SurvivorGameModel.cs" />

@@ -6,7 +6,10 @@ public class Unit : MonoBehaviour {
 	const float minPathUpdateTime = .2f;
 	const float pathUpdateMoveThreshold = .5f;
 
-	public GameObject target;
+	public Transform targetLeft;
+	public Transform targetMiddle;
+	public Transform targetRight;
+    private Transform target = null;
 	public float speed = 20;
 	public float turnSpeed = 3;
 	public float turnDst = 5;
@@ -15,6 +18,18 @@ public class Unit : MonoBehaviour {
 	Path path;
 
 	void Start() {
+        switch (Random.Range(0,2))
+        {
+            case 0:
+                target = targetLeft;
+                break;
+            case 1:
+                target = targetMiddle;
+                break;
+            case 2:
+                target = targetRight;
+                break;
+        }
 		StartCoroutine (UpdatePath ());
 	}
 
@@ -32,17 +47,17 @@ public class Unit : MonoBehaviour {
 		if (Time.timeSinceLevelLoad < .3f) {
 			yield return new WaitForSeconds (.3f);
 		}
-		PathRequestManager.RequestPath (new PathRequest(transform.position, target.transform.position, OnPathFound));
+		PathRequestManager.RequestPath (new PathRequest(transform.position, target.position, OnPathFound));
 
 		float sqrMoveThreshold = pathUpdateMoveThreshold * pathUpdateMoveThreshold;
-		Vector3 targetPosOld = target.transform.position;
+		Vector3 targetPosOld = target.position;
 
 		while (true) {
 			yield return new WaitForSeconds (minPathUpdateTime);
-			print (((target.transform.position - targetPosOld).sqrMagnitude) + "    " + sqrMoveThreshold);
-			if ((target.transform.position - targetPosOld).sqrMagnitude > sqrMoveThreshold) {
-				PathRequestManager.RequestPath (new PathRequest(transform.position, target.transform.position, OnPathFound));
-				targetPosOld = target.transform.position;
+			//print (((target.position - targetPosOld).sqrMagnitude) + "    " + sqrMoveThreshold);
+			if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold) {
+				PathRequestManager.RequestPath (new PathRequest(transform.position, target.position, OnPathFound));
+				targetPosOld = target.position;
 			}
 		}
 	}
@@ -77,7 +92,7 @@ public class Unit : MonoBehaviour {
 
 				Quaternion targetRotation = Quaternion.LookRotation (path.lookPoints [pathIndex] - transform.position);
 				transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
-				transform.Translate (Vector3.right * Time.deltaTime * speed * speedPercent, Space.Self);
+				transform.Translate (Vector3.forward * Time.deltaTime * speed * speedPercent, Space.Self);
 			}
 
 			yield return null;

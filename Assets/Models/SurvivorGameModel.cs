@@ -14,6 +14,7 @@ namespace Assets.Models
         public List<GameObject> Objects { get; set; }
         public float MapLength { get; set; }
         public float MapWidth { get; set; }
+        public Vector3 MapOffSet { get; set; }
         public SurvivorGameModel(int spawnRate, int numberOfObjects)
         {
             this.SpawnRate = spawnRate;

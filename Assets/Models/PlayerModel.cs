@@ -15,13 +15,10 @@ namespace Assets.Models
     public class PlayerModel
     {
         public GameObject PlayerObject { get; set; }
-        public decimal Health { get; set; }
+        public float Health { get; set; }
         public decimal Speed { get; set; }
-        public decimal DamageMultiplier { get; set; }
-        public PlayerModel()
-        {
-            Health = 100;
-        }
+        public int Damage { get; set; }
+        public bool IsDead { get; set; }
 
     }
     public class SurvivalPlayerModel : PlayerModel
@@ -30,7 +27,7 @@ namespace Assets.Models
         public SurvivalPlayerModel()
         {
             this.Speed = 100;
-            this.DamageMultiplier = 100;
+            this.Damage = 100;
         }
     }
     public class AttackerPlayerModel : PlayerModel
@@ -40,15 +37,17 @@ namespace Assets.Models
     public class AttackerAIModel : AttackerPlayerModel
     {
 
-        public const int EasySpeed = 1;
-        public const int MediumSpeed = 2;
-        public const int HardSpeed = 3;
-        public const int EasyDamageMultiplier = 1;
-        public const int MediumDamageMultiplier = 2;
-        public const int HardDamageMultiplier = 3;
-        public const int EasyHealth = 1;
-        public const int MediumHealth = 2;
-        public const int HardHealth = 3;
+        private const int EasySpeed = 1;
+        private const int MediumSpeed = 2;
+        private const int HardSpeed = 3;
+        private const int EasyDamage = 10;
+        private const int MediumDamage = 10;
+        private const int HardDamage = 10;
+        private const int EasyHealth = 1;
+        private const int MediumHealth = 2;
+        private const int HardHealth = 3;
+
+        public float DamageDelaySeconds { get; set; }
 
         public AttackerAIModel(AIType type)
         {
@@ -57,19 +56,21 @@ namespace Assets.Models
             {
                 case AIType.Easy:
                     this.Speed = EasySpeed;
-                    this.DamageMultiplier = EasyDamageMultiplier;
+                    this.Damage = EasyDamage;
                     this.Health = EasyHealth;
+                    this.DamageDelaySeconds = 2;
                     break;
                 case AIType.Medium:
                     this.Speed = MediumSpeed;
-                    this.DamageMultiplier = MediumDamageMultiplier;
+                    this.Damage = MediumDamage;
                     this.Health = MediumHealth;
-
+                    this.DamageDelaySeconds = 2;
                     break;
                 case AIType.Hard:
                     this.Speed = HardSpeed;
-                    this.DamageMultiplier = HardDamageMultiplier;
+                    this.Damage = HardDamage;
                     this.Health = HardHealth;
+                    this.DamageDelaySeconds = 2;
                     break;
             }
         }
