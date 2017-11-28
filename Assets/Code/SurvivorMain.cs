@@ -14,25 +14,42 @@ public class SurvivorMain : MonoBehaviour
     public int BarrierGapFromPlayer;
     public int GapFromWallForBarriers;
     public int InitialAmountOfAISpawn;
-
     public int NumberOfObjects;
+    public float SpawnTimer;
+    public float SpawnTimerDec;
+    public float SpawnTimerMin;
+    public int AISpawnedBeforeDec;
 
+    private SurvivorGameModel Game;
+    private float Timer = 0f;
+    private int NumberOfAISpawned = 0;
     void Start()
     {
-        var game = new SurvivorGameModel(1, NumberOfObjects);
-        GenerateMap(game);
+        Game = new SurvivorGameModel(1, NumberOfObjects);
+        GenerateMap(Game);
         Instantiate(PathAlgObject);
-        SpawnAI(AIType.Hard, InitialAmountOfAISpawn, game);
+        SpawnAI(AIType.Hard, InitialAmountOfAISpawn, Game);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Timer += Time.deltaTime;
+        if (Timer >= SpawnTimer)
+        {
+            Timer = 0f;
+            SpawnAI(AIType.Hard, InitialAmountOfAISpawn, Game);
+            if (AISpawnedBeforeDec == NumberOfAISpawned)
+            {
+                NumberOfAISpawned = 0;
+                SpawnTimer =-SpawnTimerDec;
+            }
+        }
     }
-    void SpawnAI(AIType aiType, int number, SurvivorGameModel game)
+    private void SpawnAI(AIType aiType, int number, SurvivorGameModel game)
     {
+        NumberOfAISpawned++;
         for (int x = 0; x < number; x++)
         {
             var aiModel = new AttackerAIModel(aiType);
@@ -40,7 +57,7 @@ public class SurvivorMain : MonoBehaviour
             aiClone.GetComponent<AIMain>().Init(aiModel);
         }
     }
-    void GenerateMap(SurvivorGameModel game)
+    private void GenerateMap(SurvivorGameModel game)
     {
 
         Mesh mesh = this.gameObject.GetComponent<MeshFilter>().mesh;
@@ -53,10 +70,10 @@ public class SurvivorMain : MonoBehaviour
         Random random = new Random();
         for (int i = 0; i < game.NumberOfObjects; i++)//TODO:game.Objects?
         {
-            Vector3 position = new Vector3(Random.Range((0 +  game.MapOffSet.x),
+            Vector3 position = new Vector3(Random.Range((0 + game.MapOffSet.x),
                 game.MapWidth + game.MapOffSet.x),
                 0,
-                Random.Range(0 + game.MapOffSet.z + BarrierGapFromPlayer, (game.MapLength + game.MapOffSet.z)- GapFromWallForBarriers));
+                Random.Range(0 + game.MapOffSet.z + BarrierGapFromPlayer, (game.MapLength + game.MapOffSet.z) - GapFromWallForBarriers));
             var barrier = new BarrierModel(3, 0);
             var barrierClone = Instantiate(Barrier, position, Quaternion.identity);
             barrierClone.GetComponent<BarrierMain>().Init(barrier);
